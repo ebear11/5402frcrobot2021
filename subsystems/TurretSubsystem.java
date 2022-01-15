@@ -1,0 +1,43 @@
+package frc.robot.subsystems;
+import edu.wpi.first.networktables.NetworkTable;
+import edu.wpi.first.networktables.NetworkTableEntry;
+import edu.wpi.first.networktables.NetworkTableInstance;
+
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
+public class TurretSubsystem extends SubsystemBase {
+  /** Creates a new ExampleSubsystem. */
+  //public TurretSubsystem() {}
+  
+  public double getLimelightDistance(){
+    NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
+    //NetworkTableEntry tx = table.getEntry("tx");
+    NetworkTableEntry ty = table.getEntry("ty");
+    //NetworkTableEntry ta = table.getEntry("ta");
+    //double x = tx.getDouble(0);
+    double y = ty.getDouble(0);
+    // double area = ta.getDouble(0);
+    // String xstring = String.valueOf(x);
+    // String ystring = String.valueOf(y);
+    // String astring = String.valueOf(area);
+    double last_part = Math.tan(Math.toRadians(46) + Math.toRadians(y));
+    double distance = 94/last_part;
+    System.out.println(distance);
+    //h1 6 inch
+    // A1 46 degrees
+    // H2 100 inches
+    return distance;
+  }
+  public double getLimelightX(){
+    NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
+    NetworkTableEntry tx = table.getEntry("tx");
+    double x = tx.getDouble(0);
+    return x;
+  }
+//@Override
+  
+
+  @Override
+  public void simulationPeriodic() {
+    // This method will be called once per scheduler run during simulation
+  }
+}
