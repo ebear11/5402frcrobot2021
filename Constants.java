@@ -13,5 +13,7 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-    public static double errorTolerance = 3;
+    public static double distanceErrorTolerance = 5;
+    public static double aimErrorTolerance = 3;
+
 }

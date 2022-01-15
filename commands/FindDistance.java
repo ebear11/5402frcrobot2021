@@ -27,19 +27,19 @@ public class FindDistance extends CommandBase {
       double distance = m_turretSubsystem.getLimelightDistance();
       double x = m_turretSubsystem.getLimelightX();
       System.out.println(x);
-      if (x > Constants.errorTolerance) {
+      if (x > Constants.aimErrorTolerance) {
         System.out.println("moving right");
         m_drivetrainSubsystem.drive(.15, .15);
       }
-      else if (x < -Constants.errorTolerance){
+      else if (x < -Constants.aimErrorTolerance){
         System.out.println("moving left");
         m_drivetrainSubsystem.drive(-.15, -.15);
       }
-      else if (distance > 160-Constants.errorTolerance) {
+      else if (distance > 160-Constants.distanceErrorTolerance) {
         System.out.println("forward");
         m_drivetrainSubsystem.drive(.15, -.15);
        }
-      else if (distance < 160+Constants.errorTolerance) {
+      else if (distance < 160+Constants.distanceErrorTolerance) {
         System.out.println("backward");
         m_drivetrainSubsystem.drive(-.15, .15);
       }
