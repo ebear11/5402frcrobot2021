@@ -32,9 +32,4 @@ public class DriveTrainSubsytem extends SubsystemBase {
     BackRight.set(ControlMode.PercentOutput, -.1);
     FrontRight.set(ControlMode.PercentOutput, .1);
   }
-
-  @Override
-  public void simulationPeriodic() {
-    // This method will be called once per scheduler run during simulation
-  }
 }
